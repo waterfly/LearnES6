@@ -84,6 +84,37 @@
   }
 }
 
+
+/*
+  函数内的this：为函数所在对象
+  1. 全局函数，this 为顶级对象,Node.js里为所在模块
+  2. 对象里的函数，为函数所属对象
+*/
+{
+  function testThis() {
+    //this为顶层对象，浏览器里为window
+    console.log(this);
+
+    function testSubFunc() {
+      //this为顶层对象，浏览器里为window
+      console.log(this);
+    }
+    testSubFunc();
+
+    let testObject = {
+      a: 1,
+      b: "abcd",
+      c: function () {
+        //this 为函数所属对象，即为testObject
+        console.log(this);
+      },
+    };
+
+    testObject.c();
+  }
+  testThis();
+}
+
 /*
 
   class内的全局变量 和 this
@@ -99,9 +130,9 @@
     a = "1";
     b = "2";
 
-    constructor(){
+    constructor() {
       //constructor内声明的变量必须要用 this
-      this.c = "3"
+      this.c = "3";
 
       console.log(this.a);
       this.a = "4";
