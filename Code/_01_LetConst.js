@@ -87,16 +87,16 @@
 
 /*
   函数内的this：为函数所在对象
-  1. 全局函数，this 为顶级对象,Node.js里为所在模块
+  1. 全局函数，this 为顶级对象
   2. 对象里的函数，为函数所属对象
 */
 {
   function testThis() {
-    //this为顶层对象，浏览器里为window
+    //this为顶层对象，浏览器里为window,Node.js为global
     console.log(this);
 
     function testSubFunc() {
-      //this为顶层对象，浏览器里为window
+      //this为顶层对象，浏览器里为window,Node.js为global
       console.log(this);
     }
     testSubFunc();
