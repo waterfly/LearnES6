@@ -2,6 +2,11 @@
  * @Author: WaterFly
  * @Date: 2021-10-18
  * @Description: 函数的扩展
+ * 
+ * 1. 函数支持参数默认值
+ * 2. rest参数
+ * 3. 箭头函数
+ * 
  * Just enjoy code.
  */
 
@@ -60,7 +65,7 @@
       console.log(this);
 
       //箭头函数为 静态绑定，总是指向定义时 上层作用域的 this
-      //这里箭头函数 f 指向 foo() 的 this
+      //这里箭头函数 f 指向 foo() 的 this，foo() 默认指向顶层对象
       let f = () => {
         console.log("箭头函数 id:", this.id); //42
       };
