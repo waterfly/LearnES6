@@ -49,13 +49,16 @@
     function* foo(x) {
       var y = 3 * (yield x + 1); // 只执行到 yield x + 1 表达式，并返回 x + 1的结果
       var z = yield y / 3; // 先执行 y = 3 * next函数的传参（注意，需要把 yield x + 1 替换为 next函数的参数，并不是表达式本身的结果），然后执行  y / 3；
-      return x + y + z;
+      return x + y + z; // 返回该表达式的值
     }
 
     // 使 x = 4
     var b = foo(4);
+    // 第一次调用 next，参数没有意义，无需传参
     console.log(b.next()); // { value:6, done:false }
+    // 第二次调用 next，参数 4 会作为上次yield表达式的值传过去，即作为 (yield x + 1) 表达式的值（忽略 x + 1的结果）
     console.log(b.next(4)); // { value:4, done:false }
+    // 第三次调用 next，参数 13 会作为 yield y / 3 表达式的值
     console.log(b.next(13)); // { value:29, done:true }
   }
 }
