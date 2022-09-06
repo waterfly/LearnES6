@@ -32,4 +32,4 @@ Task:
 - [x] 24.Module 的语法
 - [x] 25.Module 的加载实现
 - [x] 26.编程风格
-- [ ] 27.读懂 ECMAScript 规格
+- [x] 27.读懂 ECMAScript 规格
